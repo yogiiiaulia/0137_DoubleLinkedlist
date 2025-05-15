@@ -57,13 +57,13 @@ private:
 
         // insert in between node
         // step 8 : located position for insertion
-        node *current = start;
+        Node *current = start;
         while (current->next != NULL && current->next->noMhs < nim)
         {
             current = current->next;
         }
 
-        if (current->next != NULL && nim == current->nexxt->noMhs)
+        if (current->next != NULL && nim == current->next->noMhs)
         {
             cout << "\nDuplicate roll number not allowed" << endl;
             return;
@@ -74,7 +74,7 @@ private:
         newNode->prev = current; // step 9b : newNode.prev = current
 
         //insert last node
-        if (current->nenxt !=NULL)
+        if (current->next !=NULL)
             current->next->prev = newNode; //step 9c : current.next.prev = newNode
         current->next = newNode; // step 9d : current.next = newNode
         
@@ -130,4 +130,4 @@ private:
         cout << "Record with roll number " << rollNo << "deleted" << endl;
     }
     
-};
+}
