@@ -55,7 +55,13 @@ private:
             return;
         }
 
-        
+        // insert in between node
+        // step 8 : located position for insertion
+        node *current = start;
+        while (current->next != NULL && current->next->noMhs < nim)
+        {
+            
+        }
     }
 
 };
