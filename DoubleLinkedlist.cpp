@@ -43,7 +43,9 @@ private:
             // step 4 : newNode.next = start
             newNode->next = start;
 
-            
+            // step 5 : start.prev = newNode (if start exists)
+            if(start != NULL)
+            start->prev = newNode;
         }
     }
 
