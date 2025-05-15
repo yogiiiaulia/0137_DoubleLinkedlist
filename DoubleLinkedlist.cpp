@@ -15,5 +15,12 @@ class DoubleLinkedlist
 private:
     Node *start;
 
+    public :
+    DoubleLinkedlist()
+    {
+        start = NULL;
+    }
+
+   
 
 };
