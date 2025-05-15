@@ -214,3 +214,50 @@ private:
     }
 };
 
+int main()
+{
+    DoubleLinkedlist list;
+    char choice;
+
+    do
+    {
+        cout << "\nMenu :\n";
+        cout << "1. Add Record\n";
+        cout << "2. Delete Record\n";
+        cout << "3. View Asending\n";
+        cout << "4. View Descinding\n";
+        cout << "5. Search Record\n";
+        cout << "6. Exit\n";
+        cout << "Enter your choice";
+
+        cin >> choice;
+
+        switch (choice)
+        {
+            case '1':
+                list.addNote();
+                break;
+            case '2':
+                list.Hapus();
+                break;
+            case '3':
+                list.traverse();
+                break;
+            case '4':
+                list.revtraverse();
+                break;
+            case '5':
+                list.searchData();
+                break;
+            case '6':
+                return 0;
+            default :
+                cout << "Invalid option\n";
+        }
+        cout << "\nPress Enter to continue...";
+        cin.ignore();
+        cin.get();
+        cout << endl;
+        system("clear");
+    }while (choice != '6');
+}
