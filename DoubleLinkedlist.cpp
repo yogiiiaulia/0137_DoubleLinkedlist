@@ -21,6 +21,9 @@ private:
         start = NULL;
     }
 
-   
+    void addNote()
+    {
+        
+    }
 
 };
