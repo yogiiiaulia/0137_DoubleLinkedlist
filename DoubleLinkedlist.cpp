@@ -129,5 +129,135 @@ private:
         delete current;
         cout << "Record with roll number " << rollNo << "deleted" << endl;
     }
-    
+    void traverse()
+    {
+        if (start == NULL)
+        {
+            cout << "\nList is empty" << endl;
+            return;
+        }
+
+        //step 1: Mark first node as currentNode
+        Node *currentNode = start;
+
+        // step 2 : repeat until currentNode == NULL
+        cout << "\nRecord in ascending order of roll number are:\n";
+        int i = 0;
+        while (currentNode != NULL)
+        {
+            cout << i + 1 << ". " << currentNode->noMhs <<" " << endl;
+
+            //step 3 : Move to next node
+            currentNode = currentNode->next;
+            i++;
+        }
+    }
+
+    void revtraverse()
+    {
+        if (start == NULL)
+        {
+            cout << "\nList is empty" << endl;
+            return;
+        }
+
+        //step 1 : move to last node
+        Node *currentNode = start;
+        int i = 0;
+        while (currentNode->next != NULL)
+        {
+            currentNode = currentNode->next;
+            i++;
+        }
+
+        //step 2 : Traverse backward
+        cout << "\nRecord in descending order of roll number are:\n";
+        while (currentNode != NULL)
+        {
+            cout << i + 1 << ". " << currentNode->noMhs << " " << endl;
+
+            // step 3 : move to previous node
+            currentNode = currentNode->prev;
+            i--;
+        }
+    }
+
+    void searchData()
+    {
+        if (start == NULL)
+        {
+            cout << "\nList is empty" << endl;
+            return;
+        }
+
+        int rollNo;
+        cout << "\nEnter the roll number to search :";
+        cin >> rollNo;
+
+        Node *current = start;
+
+        //step 1 : traverse to find matching roll number
+        while (current != NULL && current->noMhs != rollNo)
+        current = current->next;
+
+        //step 2 : output result
+        if (current == NULL)
+        {
+           cout << "Record not found\n";
+        }
+        else
+        {
+            cout << "Record found\n";
+            cout << "Roll Number : " << current->noMhs << endl;
+        }
+        
+    }
+};
+
+int main()
+{
+    DoubleLinkedlist list;
+    char choice;
+
+    do
+    {
+        cout << "\nMenu :\n";
+        cout << "1. Add Record\n";
+        cout << "2. Delete Record\n";
+        cout << "3. View Asending\n";
+        cout << "4. View Descinding\n";
+        cout << "5. Search Record\n";
+        cout << "6. Exit\n";
+        cout << "Enter your choice";
+
+        cin >> choice;
+
+        switch (choice)
+        {
+            case '1':
+                list.addNote();
+                break;
+            case '2':
+                list.Hapus();
+                break;
+            case '3':
+                list.traverse();
+                break;
+            case '4':
+                list.revtraverse();
+                break;
+            case '5':
+                list.searchData();
+                break;
+            case '6':
+                return 0;
+            default :
+                cout << "Invalid option\n";
+        }
+        cout << "\nPress Enter to continue...";
+        cin.ignore();
+        cin.get();
+        cout << endl;
+        system("clear");
+    }while (choice != '6');
 }
