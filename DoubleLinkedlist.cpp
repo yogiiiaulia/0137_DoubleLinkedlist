@@ -29,7 +29,10 @@ private:
         //step 1 : allocate memory for new node
         Node *newNode = new Node();
 
-        
+        //step 2 : assign value to the data fields
+        newNode->noMhs = nim;
+
+       
     }
 
 };
